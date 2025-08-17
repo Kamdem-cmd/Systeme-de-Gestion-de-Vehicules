@@ -183,6 +183,7 @@ class Garage
         {
             for(size_t i = 0; i < sizeof(vehicules); i++)
             {
+                cout << "\n";
                 vehicules[i]->Afficher();
                 cout << "_____________________________________\n";
             }
