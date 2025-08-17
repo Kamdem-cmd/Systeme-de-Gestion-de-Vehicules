@@ -10,10 +10,9 @@ using namespace std;
 class Vehicule
 {
     private:
-
         string _immatriculation;
         int _annee;
-        double prix;
+        double _prix;
 
     public:
         Vehicule()
@@ -25,10 +24,14 @@ class Vehicule
             cout << "destructeur de vehicule\n"; 
         }
 
-        void Affichier()
+        virtual void Affichier()
         {
-
+            // Affiche infos(immatriculation, annee, prix)
         }
+
+        string Immatriculation(){ return (this->_immatriculation);};
+        int Annee(){ return (this->_annee);};
+        double Prix(){ return (this->_prix);};
 };
 
 class Voiture : public Vehicule
