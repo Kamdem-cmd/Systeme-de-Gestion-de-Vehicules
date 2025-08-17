@@ -12,5 +12,10 @@ int main()
     
     // Afficher les differents vehicules
     monGarage.AfficherVehicules();
+
+    // recherche vehicule
+    cout << "resultat de recherche des vehicules\n";
+    monGarage.RechercheParImmat("CE065JD");
+    
     return(0);
 }

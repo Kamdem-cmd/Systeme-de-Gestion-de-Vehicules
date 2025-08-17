@@ -189,6 +189,19 @@ class Garage
             }
         }
 
+        Vehicule *RechercheParImmat(string immat)
+        {
+            for(size_t i = 0; i < sizeof(vehicules); i++)
+            {
+                cout << "\n";
+                if (vehicules[i]->Immatriculation() == immat)
+                {
+                    return(vehicules[i]);
+                }
+            }
+            return (nullptr);
+        }
+
         ~Garage()
         {
             // Liberation de la memoire pour chaque vehicule ajouter, delete v;
