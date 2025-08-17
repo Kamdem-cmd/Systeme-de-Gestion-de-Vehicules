@@ -10,6 +10,7 @@ using namespace std;
 class Vehicule
 {
     private:
+        string _type;
         string _immatriculation;
         int _annee;
         double _prix;
@@ -27,18 +28,28 @@ class Vehicule
             this->_prix = prix;
         }
 
+        Vehicule(string imma, int annee, double prix, string type)
+        {
+            this->_immatriculation = imma;
+            this->_annee = annee;
+            this->_prix = prix;
+            _type = type;
+        }
+
         ~Vehicule(){
             cout << "destructeur de vehicule\n"; 
         }
 
         // Affiche infos(immatriculation, annee, prix)
         virtual void Afficher()
-        {   
+        {  
             cout << "Immatriculation: " << Immatriculation() << "\n";
             cout << "Annee de fabrication: " << Annee() << "\n";
             cout << "Prix: " << Prix() << "FCFA\n";
+            cout << "Type: " << Type() << "\n";
         }
 
+        virtual string Type(){ return(this->_type);}
         string Immatriculation(){ return (this->_immatriculation);};
         int Annee(){ return (this->_annee);};
         double Prix(){ return (this->_prix);};
@@ -55,13 +66,15 @@ class Voiture : public Vehicule
             cout << "constructeur de voiture\n";
         }
 
-        Voiture(string imma, int annee, double prix, int nbPorte): Vehicule(imma, annee, prix){
+        Voiture(string imma, int annee, double prix, int nbPorte): Vehicule(imma, annee, prix, Type()){
             this->_nbPorte = nbPorte;
         }
 
         ~Voiture(){
             cout << "destructeur de voiture\n"; 
         }
+
+        string Type(){ return("Voiture");}
 
         void Afficher()
         {
@@ -87,7 +100,7 @@ class Moto : public Vehicule
             cout << "constructeur de moto\n";
         }
 
-        Moto(string imma, int annee, double prix, bool casque): Vehicule(imma, annee, prix){
+        Moto(string imma, int annee, double prix, bool casque): Vehicule(imma, annee, prix, Type()){
             this->_estEquipeCasque = casque;
         }
 
@@ -101,6 +114,8 @@ class Moto : public Vehicule
 
             (estEquipeCasque() == true) ? cout << "possede un casque: Oui\n" : cout << "possede un casque: Non\n";  
         }
+
+        string Type(){ return("Moto");}
 
         bool estEquipeCasque()
         {
@@ -121,7 +136,7 @@ class Camion : public Vehicule
             cout << "constructeur de camion\n";
         }
 
-        Camion(string imma, int annee, double prix, double chargeMax, double longueurRemorque): Vehicule(imma, annee, prix)
+        Camion(string imma, int annee, double prix, double chargeMax, double longueurRemorque): Vehicule(imma, annee, prix, Type())
         {
             this->_poidsMaxCharge = chargeMax;
             this->_longueurRemorque = longueurRemorque;
@@ -138,6 +153,8 @@ class Camion : public Vehicule
             cout << "Longueur de la remorque: " << longueurRemorque() << "\n";
 
         }
+
+        string Type(){ return("Camion");}
 
         double poidsMaxCharge(){
             return (_poidsMaxCharge);
@@ -167,6 +184,7 @@ class Garage
             for(size_t i = 0; i < sizeof(vehicules); i++)
             {
                 vehicules[i]->Afficher();
+                cout << "_____________________________________\n";
             }
         }
 
