@@ -50,12 +50,12 @@ class Voiture : public Vehicule
         int _nbPorte;
 
     public:
-        Voiture()
+        Voiture():Vehicule()
         {
             cout << "constructeur de voiture\n";
         }
 
-        Voiture(string imma, int annee, double prix, int nbPorte){
+        Voiture(string imma, int annee, double prix, int nbPorte): Vehicule(imma, annee, prix){
             this->_nbPorte = nbPorte;
         }
 
@@ -82,12 +82,12 @@ class Moto : public Vehicule
         bool _estEquipeCasque;
 
     public:
-        Moto()
+        Moto():Vehicule()
         {
             cout << "constructeur de moto\n";
         }
 
-        Moto(string imma, int annee, double prix, bool casque){
+        Moto(string imma, int annee, double prix, bool casque): Vehicule(imma, annee, prix){
             this->_estEquipeCasque = casque;
         }
 
@@ -116,12 +116,12 @@ class Camion : public Vehicule
         double _longueurRemorque;
 
     public:
-        Camion()
+        Camion():Vehicule()
         {
             cout << "constructeur de camion\n";
         }
 
-        Camion(string imma, int annee, double prix, double chargeMax, double longueurRemorque)
+        Camion(string imma, int annee, double prix, double chargeMax, double longueurRemorque): Vehicule(imma, annee, prix)
         {
             this->_poidsMaxCharge = chargeMax;
             this->_longueurRemorque = longueurRemorque;
