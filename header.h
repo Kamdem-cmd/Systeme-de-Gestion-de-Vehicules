@@ -36,7 +36,7 @@ class Vehicule
         {   
             cout << "Immatriculation: " << Immatriculation() << "\n";
             cout << "Annee de fabrication: " << Annee() << "\n";
-            cout << "Prix: " << Prix() << "\n";
+            cout << "Prix: " << Prix() << "FCFA\n";
         }
 
         string Immatriculation(){ return (this->_immatriculation);};
@@ -99,7 +99,7 @@ class Moto : public Vehicule
         {
             Vehicule::Afficher();
 
-            (estEquipeCasque() == true) ? cout << "Nombre de portes: Oui\n" : cout << "Nombre de portes: Non\n";  
+            (estEquipeCasque() == true) ? cout << "possede un casque: Oui\n" : cout << "possede un casque: Non\n";  
         }
 
         bool estEquipeCasque()
